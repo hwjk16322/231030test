@@ -12,7 +12,7 @@ public class PostController {
     PostService postService = new PostService();
 
     public void write() {
-        if (Container.getLoginuser() == null) {
+        if (Container.getLoginedUser()== null) {
             System.out.println("로그인해야 등록할 수 있습니다.");
             return;
         }
@@ -22,13 +22,13 @@ public class PostController {
         System.out.println("내용을 입력해주세요");
         System.out.print("입력 ) ");
         String content = sc.nextLine();
-        postService.write(title, content, Container.getLoginuser().getUserId());
+        postService.write(title, content, Container.getLoginedUser().getUserId());
         System.out.println("등록이 완료되었습니다.");
     }
 
     public void list() {
         List<Post> postList = postService.postList();
-        if (postList.size() == 0) {
+        if (postList.isEmpty()) {
             System.out.println("등록된 게시물이 없습니다.");
             return;
         }
@@ -39,7 +39,7 @@ public class PostController {
     }
 
     public void modify() {
-        if (Container.getLoginuser() == null) {
+        if (Container.getLoginedUser() == null) {
             System.out.println("로그인해야 수정할 수 있습니다.");
             return;
         }
@@ -48,7 +48,7 @@ public class PostController {
             System.out.print("입력 ) ");
             int id = Integer.parseInt(sc.nextLine());
             Post post = postService.postList().get(id-1);
-            if (post.getUserName().equals(Container.getLoginuser().getUserId())) {
+            if (post.getUserName().equals(Container.getLoginedUser().getUserId())) {
                 System.out.println("기존 제목 : " + post.getTitle());
                 System.out.println("수정할 제목을 입력해주세요");
                 System.out.print("입력 ) ");
@@ -68,7 +68,7 @@ public class PostController {
     }
 
     public void remove() {
-        if (Container.getLoginuser() == null) {
+        if (Container.getLoginedUser() == null) {
             System.out.println("로그인해야 삭제할 수 있습니다.");
             return;
         }
@@ -78,7 +78,7 @@ public class PostController {
             int id = Integer.parseInt(sc.nextLine());
             Post post = postService.postList().get(id-1);
 
-            if (post.getUserName().equals(Container.getLoginuser().getUserId())) {
+            if (post.getUserName().equals(Container.getLoginedUser().getUserId())) {
                 postService.remove(id-1);
                 System.out.println("삭제가 완료되었습니다.");
             } else {

@@ -23,5 +23,5 @@ public class Container {
 
     @Setter
     @Getter
-    public static User loginuser;
+    public static User loginedUser;
 }

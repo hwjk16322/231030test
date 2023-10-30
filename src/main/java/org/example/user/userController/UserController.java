@@ -12,7 +12,7 @@ public class UserController {
     Scanner sc = Container.getSc();
 
     public void sign() {
-        if (Container.getLoginuser() != null) {
+        if (Container.getLoginedUser() != null) {
             System.out.println("이미 로그인되어 있습니다.");
             return;
         }
@@ -47,7 +47,7 @@ public class UserController {
     }
 
     public void login() {
-        if (Container.getLoginuser() != null) {
+        if (Container.getLoginedUser() != null) {
             System.out.println("이미 로그인되어 있습니다.");
             return;
         }
@@ -63,17 +63,17 @@ public class UserController {
             System.out.println("회원정보가 일치하지 않습니다.");
             return;
         }
-        Container.setLoginuser(user);
-        System.out.println("로그인이 완료되었습니다. " + Container.getLoginuser().getUserId() + " 님 안녕하세요!");
+        Container.setLoginedUser(user);
+        System.out.println("로그인이 완료되었습니다. " + Container.getLoginedUser().getUserId() + " 님 안녕하세요!");
     }
 
 
     public void logout() {
-        if (Container.getLoginuser() == null) {
+        if (Container.getLoginedUser() == null) {
             System.out.println("로그인 상태가 아닙니다.");
         } else {
             System.out.println("로그아웃 되었습니다.");
-            Container.setLoginuser(null);
+            Container.setLoginedUser(null);
         }
     }
 }

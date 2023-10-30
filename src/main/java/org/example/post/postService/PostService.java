@@ -8,9 +8,8 @@ import java.util.List;
 public class PostService {
     PostRepository postRepository = new PostRepository();
 
-    public int write(String title, String content, String userId) {
-
-        return postRepository.write(title, content, userId);
+    public void write(String title, String content, String userId) {
+        postRepository.write(title, content, userId);
     }
 
     public List<Post> postList() {

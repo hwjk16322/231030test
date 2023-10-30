@@ -1,7 +1,7 @@
 package org.example;
 
 import org.example.post.postController.PostController;
-import org.example.system.systemService.SystemController;
+import org.example.system.systemController.SystemController;
 import org.example.user.userController.UserController;
 
 public class App {

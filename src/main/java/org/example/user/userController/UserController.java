@@ -14,6 +14,10 @@ public class UserController {
     Scanner sc = Container.getSc();
 
     public void sign() {
+        if (Container.getLoginuser() != null) {
+            System.out.println("이미 로그인되어 있습니다.");
+            return;
+        }
         String userId;
         String userPW;
         String userPWCheck;
@@ -46,6 +50,12 @@ public class UserController {
     }
 
     public void login() {
+
+        if (Container.getLoginuser() != null) {
+            System.out.println("이미 로그인되어 있습니다.");
+            return;
+        }
+
         System.out.println("아이디를 입력해주세요");
         System.out.print("입력 ) ");
         String id = sc.nextLine();
@@ -61,7 +71,7 @@ public class UserController {
         }
 
         Container.setLoginuser(user);
-        System.out.println("로그인이 완료되었습니다. " +Container.getLoginuser().getUserId()+" 님 안녕하세요!");
+        System.out.println("로그인이 완료되었습니다. " + Container.getLoginuser().getUserId() + " 님 안녕하세요!");
 
     }
 

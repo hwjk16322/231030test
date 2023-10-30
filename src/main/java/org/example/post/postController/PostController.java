@@ -68,7 +68,7 @@ public class PostController {
                 System.out.println("작성하신 글만 수정할 수 있습니다.");
             }
         } catch (Exception e) {
-            System.out.println("숫자만 입력해주세요");
+            System.out.println("오류가 발생했습니다. 다시 시도해주세요");
         }
 
 

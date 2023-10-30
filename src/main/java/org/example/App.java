@@ -1,10 +1,19 @@
 package org.example;
 
+import org.example.db.DBConnection;
 import org.example.post.postController.PostController;
 import org.example.system.systemController.SystemController;
 import org.example.user.userController.UserController;
 
 public class App {
+    public App() {
+        DBConnection.DB_NAME = "proj231030";
+        DBConnection.DB_USER = "root";
+        DBConnection.DB_PORT = 3306;
+        DBConnection.DB_PASSWORD = "";
+        Container.getDBconnection().connect();
+    }
+
     public void run() {
         PostController postController = new PostController();
         UserController userController = new UserController();

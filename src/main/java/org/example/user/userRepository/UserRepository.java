@@ -27,7 +27,6 @@ public class UserRepository {
             if(id.equals(userList.get(i).getUserId()) && PW.equals(userList.get(i).getUserPW())){
                 return userList.get(i);
             }
-
         }
         return null;
     }

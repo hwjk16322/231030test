@@ -4,7 +4,6 @@ import org.example.Container;
 import org.example.post.entity.Post;
 import org.example.post.postService.PostService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -37,7 +36,6 @@ public class PostController {
         for (int i = 0; i < postList.size(); i++) {
             System.out.printf("%d / %s / %s / %s \n", postList.get(i).getId(), postList.get(i).getTitle(), postList.get(i).getContent(), postList.get(i).getUserName());
         }
-
     }
 
     public void modify() {
@@ -59,19 +57,14 @@ public class PostController {
                 System.out.println("수정할 제목을 입력해주세요");
                 System.out.print("입력 ) ");
                 String newContent = sc.nextLine();
-
                 postService.modify(newTitle, newContent, id-1);
-
                 System.out.println("수정이 완료되었습니다.");
-
             } else {
                 System.out.println("작성하신 글만 수정할 수 있습니다.");
             }
         } catch (Exception e) {
             System.out.println("오류가 발생했습니다. 다시 시도해주세요");
         }
-
-
     }
 
     public void remove() {
@@ -88,14 +81,11 @@ public class PostController {
             if (post.getUserName().equals(Container.getLoginuser().getUserId())) {
                 postService.remove(id-1);
                 System.out.println("삭제가 완료되었습니다.");
-
             } else {
                 System.out.println("작성하신 글만 삭제할 수 있습니다.");
             }
         } catch (Exception e) {
             System.out.println("오류가 발생했습니다. 다시 시도해주세요");
         }
-
-
     }
 }

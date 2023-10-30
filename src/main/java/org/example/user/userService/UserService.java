@@ -11,8 +11,8 @@ public class UserService {
     }
     public void newUser(String userId, String userPW){
         userRepository.newUser(userId,userPW);
-
     }
+
     public User login(String id, String PW){
         return userRepository.login(id,PW);
     }

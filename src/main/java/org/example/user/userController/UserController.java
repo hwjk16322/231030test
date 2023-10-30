@@ -9,8 +9,6 @@ import java.util.Scanner;
 
 public class UserController {
     UserService userService = new UserService();
-
-
     Scanner sc = Container.getSc();
 
     public void sign() {
@@ -44,13 +42,11 @@ public class UserController {
                 System.out.println("비밀번호가 다릅니다. 다시 입력해주세요");
             }
         }
-
         userService.newUser(userId, userPW);
         System.out.println("회원가입이 완료되었습니다.");
     }
 
     public void login() {
-
         if (Container.getLoginuser() != null) {
             System.out.println("이미 로그인되어 있습니다.");
             return;
@@ -62,17 +58,13 @@ public class UserController {
         System.out.println("비밀번호를 입력해주세요");
         System.out.print("입력 ) ");
         String PW = sc.nextLine();
-
-
         User user = userService.login(id, PW);
         if (user == null) {
             System.out.println("회원정보가 일치하지 않습니다.");
             return;
         }
-
         Container.setLoginuser(user);
         System.out.println("로그인이 완료되었습니다. " + Container.getLoginuser().getUserId() + " 님 안녕하세요!");
-
     }
 
 
@@ -84,5 +76,4 @@ public class UserController {
             Container.setLoginuser(null);
         }
     }
-
 }

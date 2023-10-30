@@ -25,7 +25,6 @@ public class PostRepository {
         postList.get(id).setContent(newContent);
     }
 
-
     public void remove(int id) {
         postList.remove(id);
     }
